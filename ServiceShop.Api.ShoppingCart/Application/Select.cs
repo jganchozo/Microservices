@@ -42,14 +42,14 @@ namespace ServiceShop.Api.ShoppingCart.Application
                         {
                             BookTitle = bookResult.Title,
                             PublicationDate = bookResult.PublicationDate,
-                            BookId = bookResult.MaterialLibraryId.Value,
+                            BookId = bookResult.MaterialLibraryId,
                         };
 
                         ProductList.Add(cartDetail);
                     }
                 }
 
-                CartDto cartDto = new() 
+                CartDto cartDto = new()
                 {
                     ProductList = ProductList,
                     CartId = cartSession.CartSessionId,
@@ -57,7 +57,6 @@ namespace ServiceShop.Api.ShoppingCart.Application
                 };
 
                 return cartDto;
-
             }
         }
     }

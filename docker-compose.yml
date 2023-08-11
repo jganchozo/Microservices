@@ -1,0 +1,34 @@
+version: '3.4'
+
+services:
+  serviceshop.api.author:
+    image: ${DOCKER_REGISTRY-}serviceshopapiauthor
+    build:
+      context: .
+      dockerfile: ServiceShop.Api.Author/Dockerfile
+
+  serviceshop.api.book:
+    image: ${DOCKER_REGISTRY-}serviceshopapibook
+    build:
+      context: .
+      dockerfile: ServiceShop.Api.Book/Dockerfile
+
+  serviceshop.api.shoppingcart:
+    image: ${DOCKER_REGISTRY-}serviceshopapishoppingcart
+    build:
+      context: .
+      dockerfile: ServiceShop.Api.ShoppingCart/Dockerfile
+
+  serviceshop.api.gateway:
+    image: ${DOCKER_REGISTRY-}serviceshopapigateway
+    build:
+      context: .
+      dockerfile: ServiceShop.Api.Gateway/Dockerfile
+
+networks:
+  default:
+    external:
+      name: microservicesnet
+
+
+

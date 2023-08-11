@@ -1,10 +1,9 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using MySql.Data.MySqlClient;
 using ServiceShop.Api.ShoppingCart.Persistence;
 using ServiceShop.Api.ShoppingCart.RemoteInterface;
 using ServiceShop.Api.ShoppingCart.RemoteService;
+//using ServiceShop.Shared.Setup;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -26,9 +25,26 @@ builder.Services.AddHttpClient("Books", config =>
     config.BaseAddress = new Uri(builder.Configuration.GetValue<string>("Services:Books")!);
 });
 
-var app = builder.Build();
+//var app = DefaultWebApplication.Create(args, webappBuilder =>
+//{
+//    // Add services to the container.
+//    webappBuilder.Services.AddScoped<IBookService, BookService>();
+
+//    var connectionString = webappBuilder.Configuration.GetConnectionString("mysqlserverdbconnection")!;
+
+//    webappBuilder.Services.AddDbContext<CartContext>(x => x.UseMySQL(connectionString));
+//    webappBuilder.Services.AddMediatR(Assembly.GetExecutingAssembly());
+//    webappBuilder.Services.AddHttpClient("Books", config =>
+//    {
+//        config.BaseAddress = new Uri(webappBuilder.Configuration.GetValue<string>("Services:Books")!);
+//    });
+//});
 
 // Configure the HTTP request pipeline.
+//DefaultWebApplication.Run(app);
+
+var app = builder.Build();
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
