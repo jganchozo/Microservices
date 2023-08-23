@@ -11,8 +11,8 @@ using ServiceShop.Api.ShoppingCart.Persistence;
 namespace ServiceShop.Api.ShoppingCart.Migrations
 {
     [DbContext(typeof(CartContext))]
-    [Migration("20230725223611_InitialMySqlMigration")]
-    partial class InitialMySqlMigration
+    [Migration("20230822214918_InitialMySQLMigration")]
+    partial class InitialMySQLMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

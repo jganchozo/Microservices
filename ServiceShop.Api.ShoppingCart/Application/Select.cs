@@ -38,14 +38,17 @@ namespace ServiceShop.Api.ShoppingCart.Application
                     {
                         var bookResult = response.book;
 
-                        CartDetailDto cartDetail = new()
+                        if (bookResult is not null)
                         {
-                            BookTitle = bookResult.Title,
-                            PublicationDate = bookResult.PublicationDate,
-                            BookId = bookResult.MaterialLibraryId,
-                        };
+                            CartDetailDto cartDetail = new()
+                            {
+                                BookTitle = bookResult.Title,
+                                PublicationDate = bookResult.PublicationDate,
+                                BookId = bookResult.MaterialLibraryId,
+                            };
 
-                        ProductList.Add(cartDetail);
+                            ProductList.Add(cartDetail); 
+                        }
                     }
                 }
 

@@ -29,7 +29,7 @@ namespace ServiceShop.Shared.Setup
                 webApp.UseSwaggerUI();
             }
 
-            webApp.UseHttpsRedirection();
+            //webApp.UseHttpsRedirection();
 
             webApp.UseAuthorization();
 

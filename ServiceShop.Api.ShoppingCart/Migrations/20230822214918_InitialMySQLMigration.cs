@@ -7,7 +7,7 @@ using MySql.EntityFrameworkCore.Metadata;
 namespace ServiceShop.Api.ShoppingCart.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMySqlMigration : Migration
+    public partial class InitialMySQLMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
