@@ -28,6 +28,11 @@ namespace ServiceShop.Api.ShoppingCart.Application
                 var cartSession = await _cartContext.CartSession.FirstOrDefaultAsync(x => x.CartSessionId == request.CartSessionId);
                 var cartSessionDetail = await _cartContext.CartSessionDetail.Where(x => x.CartSessionId == request.CartSessionId).ToListAsync();
 
+                if (cartSession is null)
+                {
+                    throw new Exception($"Shopping cart does not exist");
+                }
+
                 List<CartDetailDto> ProductList = new();
 
                 foreach (var book in cartSessionDetail)

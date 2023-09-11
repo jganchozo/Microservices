@@ -10,7 +10,8 @@
         }
       ],
       "UpstreamPathTemplate": "/book",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ]
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
+      "Key": "AllBooks"
     },
     {
       "DownstreamPathTemplate": "/api/book/{id}",
@@ -22,7 +23,68 @@
         }
       ],
       "UpstreamPathTemplate": "/Book/{id}",
+      "UpstreamHttpMethod": [ "GET", "DELETE" ],
+      "Delegatinghandlers": [
+        "BookHandler"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/author",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "serviceshop.api.author",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/author",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
+      "Key": "AllAuthors"
+    },
+    {
+      "DownstreamPathTemplate": "/api/author/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "serviceshop.api.author",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/author/{id}",
       "UpstreamHttpMethod": [ "GET", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/shoppingcarts",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "serviceshop.api.shoppingcart",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/shoppingcart",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/shoppingcarts/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "serviceshop.api.shoppingcart",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/shoppingcart/{id}",
+      "UpstreamHttpMethod": [ "GET", "DELETE" ]
+    }
+  ],
+  "Aggregates": [
+    {
+      "RouteKeys": [
+        "AllAuthors",
+        "AllBooks"
+      ],
+      "UpstreamPathTemplate": "/BookAuthor"
     }
   ]
 }

@@ -10,9 +10,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+	<PackageReference Include="MediatR" Version="12.1.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
-    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <!--<PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />-->
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.9">
@@ -35,6 +36,11 @@
 
   <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ServiceShop.Messenger.Email\ServiceShop.Messenger.Email.csproj" />
+    <ProjectReference Include="..\ServiceShop.RabbitMQ.Bus\ServiceShop.RabbitMQ.Bus.csproj" />
   </ItemGroup>
 
 </Project>

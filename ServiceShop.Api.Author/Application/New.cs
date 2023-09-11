@@ -7,7 +7,7 @@ namespace ServiceShop.Api.Author.Application
 {
     public class New
     {
-        public class Execute : IRequest
+        public class Execute : IRequest<Unit>
         {
             public string Name { get; set; }
             public string LastName { get; set; }
@@ -23,7 +23,7 @@ namespace ServiceShop.Api.Author.Application
             }
         }
 
-        public class Handler : IRequestHandler<Execute>
+        public class Handler : IRequestHandler<Execute, Unit>
         {
             public readonly AuthorContext _context;
 
